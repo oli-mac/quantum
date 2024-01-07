@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:quantum/pages/prompts/prompts_detail.dart';
 
 class PromptsTile extends StatelessWidget {
@@ -37,7 +38,9 @@ class PromptsTile extends StatelessWidget {
                         icon,
                         size: 30,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Clipboard.setData(ClipboardData(text: subtitle));
+                      },
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

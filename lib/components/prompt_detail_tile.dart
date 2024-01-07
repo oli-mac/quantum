@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class PromptsDetailTile extends StatelessWidget {
   final String title;
@@ -23,14 +24,18 @@ class PromptsDetailTile extends StatelessWidget {
                 icon,
                 size: 30,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Clipboard.setData(ClipboardData(text: subtitle));
+              },
             ),
             IconButton(
               icon: Icon(
                 Icons.more_horiz,
                 size: 30,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Clipboard.setData(ClipboardData(text: subtitle));
+              },
             ),
           ],
         ),

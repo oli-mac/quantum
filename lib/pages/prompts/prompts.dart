@@ -1,15 +1,9 @@
 import 'dart:convert';
 import 'dart:ui';
-
-import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
-import 'package:quantum/components/history_tile.dart';
-import 'package:quantum/components/prompt_detail_tile.dart';
 import 'package:quantum/components/prompts_tile.dart';
-import 'package:quantum/components/shortcuts.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:quantum/pages/prompts/add_prompts.dart';
-import 'package:quantum/pages/test.dart';
 
 class Prompt extends StatefulWidget {
   const Prompt({super.key});

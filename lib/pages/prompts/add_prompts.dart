@@ -3,10 +3,7 @@ import 'dart:ui';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:flutter/material.dart';
-import 'package:quantum/components/history_tile.dart';
-import 'package:quantum/components/prompt_detail_tile.dart';
-import 'package:quantum/components/shortcuts.dart';
-import 'package:quantum/pages/test.dart';
+
 import 'dart:io';
 
 class AddPrompts extends StatelessWidget {

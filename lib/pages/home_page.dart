@@ -3,7 +3,6 @@ import 'package:quantum/components/history_tile.dart';
 import 'package:quantum/components/shortcuts.dart';
 import 'package:quantum/pages/chat/chat.dart';
 import 'package:quantum/pages/prompts/prompts.dart';
-import 'package:quantum/pages/prompts/prompts_detail.dart';
 import 'package:quantum/pages/test.dart';
 
 class HomePage extends StatelessWidget {

@@ -1,10 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:quantum/components/history_tile.dart';
 import 'package:quantum/components/prompt_detail_tile.dart';
-import 'package:quantum/components/shortcuts.dart';
-import 'package:quantum/pages/test.dart';
 
 class PromptsDetail extends StatelessWidget {
   final String title;
