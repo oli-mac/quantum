@@ -39,7 +39,7 @@ class _PromptState extends State<Prompt> {
                           color: Colors.blue[600],
                           borderRadius: BorderRadius.circular(40),
                         ),
-                        padding: const EdgeInsets.all(14),
+                        padding: const EdgeInsets.all(8),
                         child: IconButton(
                           icon: const Icon(Icons.arrow_back),
                           color: Colors.white,
@@ -78,7 +78,7 @@ class _PromptState extends State<Prompt> {
                           color: Colors.blue[600],
                           borderRadius: BorderRadius.circular(50),
                         ),
-                        padding: const EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(8),
                         child: IconButton(
                           icon: const Icon(Icons.add),
                           color: Colors.white,
@@ -114,7 +114,7 @@ class _PromptState extends State<Prompt> {
                           child:
                               ListView(controller: controller, children: const [
                             HistoryTile(
-                                title: "Act as a JavaScript Console",
+                                title: "I want you to act as an advertiser....",
                                 icon: Icons.pending_actions,
                                 subtitle: "23, jan 2023"),
                             SizedBox(height: 8),

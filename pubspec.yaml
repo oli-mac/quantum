@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.6
   sqflite: ^2.3.0
   flutter_launcher_icons: ^0.13.1
+  csv: ^5.1.1
 
 
 dev_dependencies:
@@ -71,6 +72,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - data/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
