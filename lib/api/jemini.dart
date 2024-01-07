@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'dart:html';
 
 class GeminiApi {
   static Future<Map<String, String>> getHeader() async {
@@ -11,7 +10,7 @@ class GeminiApi {
   }
 
   // create http request
-  static Future<String> getGeminiData() async {
+  static Future<String> getGeminiData(text) async {
     try {
       final header = await getHeader();
 
@@ -19,7 +18,7 @@ class GeminiApi {
         'contents': [
           {
             'parts': [
-              {'texts': 'hello world'}
+              {'text': text}
             ]
           }
         ],
@@ -41,9 +40,9 @@ class GeminiApi {
 
       if (response.statusCode == 200) {
         var jsonRespose = jsonDecode(response.body) as Map<String, dynamic>;
-        return jsonRespose['candidates'][0]['contents']['parts'][0]['texts'][0];
+        return jsonRespose['candidates'][0]['content']['parts'][0]['text'];
       } else {
-        return "Error";
+        return "Error candidates";
       }
     } catch (e) {
       return "Error";
