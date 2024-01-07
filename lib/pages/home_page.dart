@@ -138,8 +138,8 @@ class HomePage extends StatelessWidget {
                     ShortCuts(
                         image: "assets/gallery.png",
                         onTap: () => {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => PromptsDetail()))
+                              // Navigator.of(context).push(MaterialPageRoute(
+                              //     builder: (context) => PromptsDetail()))
                             }),
                     ShortCuts(
                       image: "assets/profile.png",

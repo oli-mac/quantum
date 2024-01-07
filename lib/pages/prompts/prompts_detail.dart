@@ -6,14 +6,12 @@ import 'package:quantum/components/prompt_detail_tile.dart';
 import 'package:quantum/components/shortcuts.dart';
 import 'package:quantum/pages/test.dart';
 
-class PromptsDetail extends StatefulWidget {
-  const PromptsDetail({super.key});
+class PromptsDetail extends StatelessWidget {
+  final String title;
+  final String subtitle;
 
-  @override
-  State<PromptsDetail> createState() => _PromptsDetailState();
-}
+  const PromptsDetail({super.key, required this.title, required this.subtitle});
 
-class _PromptsDetailState extends State<PromptsDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,8 +56,8 @@ class _PromptsDetailState extends State<PromptsDetail> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "Act as a JavaScript Console",
+                            Text(
+                              title,
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
@@ -114,13 +112,12 @@ class _PromptsDetailState extends State<PromptsDetail> {
                       child: Container(
                         decoration: BoxDecoration(color: Colors.grey[200]),
                         child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: PromptsTile(
-                              title: "Act as a JavaScript Console",
+                            padding: const EdgeInsets.all(20.0),
+                            child: PromptsDetailTile(
+                              title: title,
                               icon: Icons.pending_actions,
-                              subtitle:
-                                  "I want you to act as a javascript console. I will type commands and you will reply with what the javascript console should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when I need to tell you something in english, I will do so by putting text inside curly brackets {like this}. My first command is console.log('Hello World');"),
-                        ),
+                              subtitle: subtitle,
+                            )),
                       ));
                 },
               ),

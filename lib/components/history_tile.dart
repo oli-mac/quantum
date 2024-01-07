@@ -15,8 +15,8 @@ class HistoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => PromptsDetail()))
+        // Navigator.of(context)
+        //     .push(MaterialPageRoute(builder: (context) => PromptsDetail()))
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 12.0),
@@ -39,14 +39,19 @@ class HistoryTile extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(title,
+                        Text(
+                            title.length > 25
+                                ? '${title.substring(0, 25)}...'
+                                : title,
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             )),
                         const SizedBox(height: 5),
                         Text(
-                          subtitle,
+                          subtitle.length > 30
+                              ? '${subtitle.substring(0, 30)}...'
+                              : subtitle,
                           softWrap: true,
                           style: const TextStyle(
                               color: Colors.grey,

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quantum/pages/prompts/prompts_detail.dart';
 
-class PromptsTime extends StatelessWidget {
+class PromptsTile extends StatelessWidget {
   final String title;
   final IconData icon;
   final String subtitle;
-  const PromptsTime(
+  const PromptsTile(
       {super.key,
       required this.title,
       required this.icon,
@@ -15,8 +15,11 @@ class PromptsTime extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => PromptsDetail()))
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => PromptsDetail(
+                  title: title,
+                  subtitle: subtitle,
+                )))
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 12.0),
@@ -39,14 +42,19 @@ class PromptsTime extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(title,
+                        Text(
+                            title.length > 25
+                                ? '${title.substring(0, 25)}...'
+                                : title,
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             )),
                         const SizedBox(height: 5),
                         Text(
-                          subtitle,
+                          subtitle.length > 30
+                              ? '${subtitle.substring(0, 30)}...'
+                              : subtitle,
                           softWrap: true,
                           style: const TextStyle(
                               color: Colors.grey,

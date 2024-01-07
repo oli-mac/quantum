@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class PromptsTile extends StatelessWidget {
+class PromptsDetailTile extends StatelessWidget {
   final String title;
   final IconData icon;
   final String subtitle;
-  const PromptsTile(
+  const PromptsDetailTile(
       {super.key,
       required this.title,
       required this.icon,
@@ -38,7 +38,7 @@ class PromptsTile extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(bottom: 12.0),
             child: Container(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16)),
@@ -54,7 +54,7 @@ class PromptsTile extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             )),
                         const SizedBox(height: 5),
-                        Container(
+                        SizedBox(
                           width: MediaQuery.of(context).size.width * 0.8,
                           child: Text(
                             subtitle,

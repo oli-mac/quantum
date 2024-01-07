@@ -1,8 +1,14 @@
+import 'dart:convert';
 import 'dart:ui';
 
+import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:quantum/components/history_tile.dart';
+import 'package:quantum/components/prompt_detail_tile.dart';
+import 'package:quantum/components/prompts_tile.dart';
 import 'package:quantum/components/shortcuts.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:quantum/pages/prompts/add_prompts.dart';
 import 'package:quantum/pages/test.dart';
 
 class Prompt extends StatefulWidget {
@@ -13,6 +19,28 @@ class Prompt extends StatefulWidget {
 }
 
 class _PromptState extends State<Prompt> {
+  List<Map<String, dynamic>> jsonData = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadJSON();
+  }
+
+  Future<void> loadJSON() async {
+    final String raw = await rootBundle.loadString('data/prompts.json');
+    List<dynamic> decodedData = json.decode(raw);
+
+    List<Map<String, dynamic>> jsonDataList = [];
+    for (Map<String, dynamic> entry in decodedData) {
+      jsonDataList.add(entry);
+    }
+
+    setState(() {
+      jsonData = jsonDataList;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +112,7 @@ class _PromptState extends State<Prompt> {
                           color: Colors.white,
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const Test()));
+                                builder: (context) => AddPrompts()));
                           },
                         ),
                       ),
@@ -111,18 +139,17 @@ class _PromptState extends State<Prompt> {
                         decoration: BoxDecoration(color: Colors.grey[200]),
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
-                          child:
-                              ListView(controller: controller, children: const [
-                            HistoryTile(
-                                title: "I want you to act as an advertiser....",
-                                icon: Icons.pending_actions,
-                                subtitle: "23, jan 2023"),
-                            SizedBox(height: 8),
-                            HistoryTile(
-                                title: "I want you to act as an advertiser....",
-                                icon: Icons.pending_actions,
-                                subtitle: "23, jan 2023"),
-                          ]),
+                          child: ListView.builder(
+                            controller: controller,
+                            itemCount: jsonData.length,
+                            itemBuilder: (context, index) {
+                              return PromptsTile(
+                                title: jsonData[index]['act'].toString(),
+                                icon: Icons.content_paste_go_rounded,
+                                subtitle: jsonData[index]['prompt'].toString(),
+                              );
+                            },
+                          ),
                         ),
                       ));
                 },
