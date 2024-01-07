@@ -36,11 +36,14 @@ class HistoryTile extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           )),
                       const SizedBox(height: 5),
-                      Text(subtitle,
-                          style: const TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14)),
+                      Text(
+                        subtitle,
+                        softWrap: true,
+                        style: const TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14),
+                      ),
                     ],
                   ),
                 ],
