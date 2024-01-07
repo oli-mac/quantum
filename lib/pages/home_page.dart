@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quantum/components/history_tile.dart';
 import 'package:quantum/components/shortcuts.dart';
+import 'package:quantum/pages/chat/chat.dart';
+import 'package:quantum/pages/prompts/prompts.dart';
+import 'package:quantum/pages/prompts/prompts_detail.dart';
 import 'package:quantum/pages/test.dart';
 
 class HomePage extends StatelessWidget {
@@ -57,9 +60,9 @@ class HomePage extends StatelessWidget {
                           color: Colors.blue[600],
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        padding: const EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(8),
                         child: IconButton(
-                          icon: Icon(Icons.notifications),
+                          icon: Icon(Icons.info_outline),
                           color: Colors.white,
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
@@ -115,18 +118,29 @@ class HomePage extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 25),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ShortCuts(
                       image: "assets/chat.png",
+                      onTap: () => {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Chat()))
+                      },
                     ),
                     ShortCuts(
                       image: "assets/notes.png",
+                      onTap: () => {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Prompt()))
+                      },
                     ),
                     ShortCuts(
-                      image: "assets/gallery.png",
-                    ),
+                        image: "assets/gallery.png",
+                        onTap: () => {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => PromptsDetail()))
+                            }),
                     ShortCuts(
                       image: "assets/profile.png",
                     ),

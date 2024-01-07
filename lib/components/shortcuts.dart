@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quantum/pages/chat.dart';
 
 class ShortCuts extends StatelessWidget {
   final String image;
   final Function? onTap;
   const ShortCuts({
-    super.key,
+    Key? key,
     required this.image,
     this.onTap,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +19,7 @@ class ShortCuts extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(16),
       child: GestureDetector(
-        onTap: () => {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => Chat()))
-        },
+        onTap: onTap as void Function()?,
         child: Center(
           child: Image.asset(image, width: 35, height: 35),
         ),

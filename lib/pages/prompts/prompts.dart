@@ -1,19 +1,25 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:quantum/components/history_tile.dart';
+import 'package:quantum/components/shortcuts.dart';
 import 'package:quantum/pages/test.dart';
 
-class Chat extends StatefulWidget {
-  const Chat({super.key});
+class Prompt extends StatefulWidget {
+  const Prompt({super.key});
 
   @override
-  State<Chat> createState() => _ChatState();
+  State<Prompt> createState() => _PromptState();
 }
 
-class _ChatState extends State<Chat> {
+class _PromptState extends State<Prompt> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
+      ),
       backgroundColor: Colors.blue,
       body: Overlay(
         initialEntries: [
@@ -24,7 +30,7 @@ class _ChatState extends State<Chat> {
               left: 0,
               right: 0,
               child: Padding(
-                padding: const EdgeInsets.only(top: 18.0),
+                padding: const EdgeInsets.only(top: 0.0),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -38,8 +44,7 @@ class _ChatState extends State<Chat> {
                           icon: const Icon(Icons.arrow_back),
                           color: Colors.white,
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const Test()));
+                            Navigator.pop(context);
                           },
                         ),
                       ),
@@ -49,7 +54,7 @@ class _ChatState extends State<Chat> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            "Quantum",
+                            "Quantum PromptS",
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -75,7 +80,7 @@ class _ChatState extends State<Chat> {
                         ),
                         padding: const EdgeInsets.all(16),
                         child: IconButton(
-                          icon: const Icon(Icons.done_all),
+                          icon: const Icon(Icons.add),
                           color: Colors.white,
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
@@ -103,13 +108,20 @@ class _ChatState extends State<Chat> {
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20)),
                       child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                        ),
+                        decoration: BoxDecoration(color: Colors.grey[200]),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: ListView(controller: controller, children: [
-                            const SizedBox(height: 30),
+                          padding: const EdgeInsets.all(20.0),
+                          child:
+                              ListView(controller: controller, children: const [
+                            HistoryTile(
+                                title: "Act as a JavaScript Console",
+                                icon: Icons.pending_actions,
+                                subtitle: "23, jan 2023"),
+                            SizedBox(height: 8),
+                            HistoryTile(
+                                title: "I want you to act as an advertiser....",
+                                icon: Icons.pending_actions,
+                                subtitle: "23, jan 2023"),
                           ]),
                         ),
                       ));
