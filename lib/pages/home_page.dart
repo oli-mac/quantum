@@ -7,8 +7,8 @@ import 'package:quantum/components/prompts/prompts_tile.dart';
 import 'package:quantum/components/shortcuts.dart';
 import 'package:quantum/pages/about/about.dart';
 import 'package:quantum/pages/chat/chat.dart';
+import 'package:quantum/pages/profile/profile.dart';
 import 'package:quantum/pages/prompts/prompts.dart';
-import 'package:quantum/pages/test.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(2),
                     child: TextField(
                       // controller: _messageController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "Search",
                         border: InputBorder.none,
                         prefixIcon: Icon(Icons.search, color: Colors.white),
@@ -195,8 +195,12 @@ class _HomePageState extends State<HomePage> {
                                 // Navigator.of(context).push(MaterialPageRoute(
                                 //     builder: (context) => PromptsDetail()))
                               }),
-                      const ShortCuts(
+                      ShortCuts(
                         image: "assets/profile.png",
+                        onTap: () => {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const Profile()))
+                        },
                       ),
                     ],
                   ),

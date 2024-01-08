@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quantum/components/about/about_tile.dart';
 
 class About extends StatefulWidget {
   const About({super.key});
@@ -61,23 +62,36 @@ class _AboutState extends State<About> {
                 crossAxisCount: 2,
                 crossAxisSpacing: 40,
                 mainAxisSpacing: 30,
-                children: [
+                children: const [
                   // itemDashboard('Videos', CupertinoIcons.play_rectangle,
                   //     Colors.deepOrange),
-                  itemDashboard(
-                      'Analytics', CupertinoIcons.graph_circle, Colors.green),
-                  itemDashboard(
-                      'Audience', CupertinoIcons.person_2, Colors.purple),
-                  itemDashboard(
-                      'Comments', CupertinoIcons.chat_bubble_2, Colors.brown),
-                  itemDashboard('Revenue', CupertinoIcons.money_dollar_circle,
-                      Colors.indigo),
-                  // itemDashboard(
+
+                  AboutTile(
+                      title: 'AnalyticiconData:s',
+                      iconData: CupertinoIcons.graph_circle,
+                      background: Colors.green),
+                  AboutTile(
+                      title: 'AudienceiconData:',
+                      iconData: CupertinoIcons.person_2,
+                      background: Colors.purple),
+                  AboutTile(
+                      title: 'CommentsiconData:',
+                      iconData: CupertinoIcons.chat_bubble_2,
+                      background: Colors.brown),
+                  AboutTile(
+                      title: 'Revenue',
+                      iconData: CupertinoIcons.money_dollar_circle,
+                      background: Colors.indigo),
+                  // AboutTile(
                   //     'Upload', CupertinoIcons.add_circled, Colors.teal),
-                  itemDashboard(
-                      'About', CupertinoIcons.question_circle, Colors.blue),
-                  itemDashboard(
-                      'Contact', CupertinoIcons.phone, Colors.pinkAccent),
+                  AboutTile(
+                      title: 'About',
+                      iconData: CupertinoIcons.question_circle,
+                      background: Colors.blue),
+                  AboutTile(
+                      title: 'Contact',
+                      iconData: CupertinoIcons.phone,
+                      background: Colors.pinkAccent),
                 ],
               ),
             ),
