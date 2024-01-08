@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:quantum/components/prompts_tile.dart';
+import 'package:quantum/components/prompts/prompts_tile.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:quantum/pages/prompts/add_prompts.dart';
 
